@@ -1,0 +1,62 @@
+git init
+git add . 
+git commit -m "ตั้งชื่อ commit"
+git branch (ชื่อ branch ตัวเอง)
+git remote add origin https://github.com/your-username/your-repository.git
+git push -u origin (ชื่อ branch ตัวเอง)
+
+git checkout ชื่อ branch
+
+docker-compose exec laravel-backend php artisan config:cac
+docker-compose exec laravel-backend php artisan migrate
+
+composer require tymon/jwt-auth
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+php artisan jwt:secret
+
+git push --force origin main
+
+mkdir -p storage/logs
+touch storage/logs/laravel.log
+tail -f storage/logs/laravel.log
+
+##Failed to fetch models##
+F1 > "Set Log Level" >
+
+php artisan make:controller RegisterController
+php artisan make:model MyModel
+กรณีที่สร้างหน้า viwe ใช้ get
+add -> กรณีที่เพิ่มถึงอย่างใช้ add ตามด้วยชื่อไฟล์ ตย. addEmployee
+edit -> กรณีที่แก้ไขถึงอย่างใช้ edit ตามด้วยชื่อไฟล์ ตย. editEmployee
+view -> กรณีที่ดูถึงอย่างใช้ view ตามด้วยชื่อไฟล์ ตย. viewEmployee
+
+กรณีที่เป็น method ใช้ post
+delete -> กรณีที่ลบถึงอย่างใช้ delete ตามด้วยชื่อไฟล์ ตย. deleteEmployee
+update -> กรณีที่อัพเดทถึงอย่างใช้ update ตามด้วยชื่อไฟล์ ตย. updateEmployee
+
+suchapa.ch
+
+เปิดที่อยู่ไฟล์บน wsl
+explorer.exe .
+
+เปลี่ยน remote ใหม่ให้ใช้
+
+วิธีที่ 1: เปลี่ยน URL ของ remote ที่มีอยู่
+git remote set-url origin https://github.com/64160100/Laravel_Project.git
+
+วิธีที่ 2: ลบ remote เดิมออกก่อน แล้วค่อยเพิ่มใหม่
+git remote remove origin
+git remote add origin https://github.com/64160100/Laravel_Project.git
+
+ตรวจสอบด้วย
+git remote -v
+
+ลบการตั้งค่า proxy ใน git
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+ตรวจสอบค่า
+git config --global -l
+
+UPDATE Project SET Count_Steps = 0;
+UPDATE Approve SET Status = 'I';
