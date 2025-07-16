@@ -1,11 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>AngularApp</title>
-  <base href="/">
-</head>
-<body>
-  <app-root></app-root>
-</body>
-</html>
+<div class="mat-typography gov-bg" style="margin-top: 70px;">
+  <div style="margin: 32px;">
+    <mat-card class="dashboard-main-card gov-card">
+      <mat-card-header>
+        <mat-card-title>
+          <span class="welcome-title">ยินดีต้อนรับ, {{ user?.username || 'ผู้ใช้งานทั่วไป' }}!</span>
+        </mat-card-title>
+        <mat-card-subtitle class="dashboard-subtitle">
+          ภาพรวมแดชบอร์ดส่วนตัวของคุณ
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="row" fxLayoutGap="24px" class="dashboard-cards-row">
+          <mat-card class="dashboard-card highlight-card gov-card" style="flex:1;">
+            <mat-icon color="primary" style="font-size: 40px;">notifications</mat-icon>
+            <mat-card-title>แจ้งเตือน</mat-card-title>
+            <mat-card-content>
+              <span class="dashboard-number">3</span>
+              <div class="dashboard-label">รายการใหม่</div>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="dashboard-card gov-card" style="flex:1;">
+            <mat-icon color="accent" style="font-size: 40px;">assignment</mat-icon>
+            <mat-card-title>งานที่ได้รับมอบหมาย</mat-card-title>
+            <mat-card-content>
+              <span class="dashboard-number">7</span>
+              <div class="dashboard-label">รอดำเนินการ</div>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="dashboard-card gov-card" style="flex:1;">
+            <mat-icon color="warn" style="font-size: 40px;">mail</mat-icon>
+            <mat-card-title>ข้อความ</mat-card-title>
+            <mat-card-content>
+              <span class="dashboard-number">2</span>
+              <div class="dashboard-label">ยังไม่ได้อ่าน</div>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="dashboard-card gov-card" style="flex:1;">
+            <mat-icon color="primary" style="font-size: 40px;">person</mat-icon>
+            <mat-card-title>ข้อมูลส่วนตัว</mat-card-title>
+            <mat-card-content>
+              <ul class="profile-list">
+                <li><strong>ชื่อผู้ใช้:</strong> {{ user?.username || 'N/A' }}</li>
+                <li *ngIf="user?.email"><strong>อีเมล:</strong> {{ user.email }}</li>
+                <li *ngIf="user?.id_user"><strong>รหัสผู้ใช้:</strong> {{ user.id_user }}</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="dashboard-graph-section">
+          <h3 style="margin-top:32px;">สรุปกิจกรรมประจำสัปดาห์</h3>
+          <div class="dashboard-graph">
+            <div class="bar" style="height: 70%"><span>จ.</span></div>
+            <div class="bar" style="height: 50%"><span>อ.</span></div>
+            <div class="bar" style="height: 90%"><span>พ.</span></div>
+            <div class="bar" style="height: 40%"><span>พฤ.</span></div>
+            <div class="bar" style="height: 60%"><span>ศ.</span></div>
+            <div class="bar" style="height: 30%"><span>ส.</span></div>
+            <div class="bar" style="height: 80%"><span>อา.</span></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

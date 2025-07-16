@@ -80,6 +80,9 @@
                 <input type="password" id="Password" name="Password" required>
             </div>
             <button type="submit">เข้าสู่ระบบ</button>
+            <div class="form-group">
+                <a href="{{ url('/register') }}">สมัครสมาชิก</a>
+            </div>
         </form>
     </div>
 </body>

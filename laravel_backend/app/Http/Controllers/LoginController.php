@@ -36,7 +36,7 @@ class LoginController extends Controller
             // เพิ่ม response json สำหรับ Postman
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid credentials'
+                'message' => 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'
             ], 401);
         }   
         Log::info('Login success', [
@@ -127,55 +127,5 @@ class LoginController extends Controller
         return redirect()->route('login')->with('success', 'Logged out successfully');
     }
 
-    public function showXmlForm()
-    {
-        return view('xml');
-    }
-
-    public function xmlToExcel(Request $request)
-    {
-        $rows = json_decode($request->input('rows'), true);
-
-        if (!$rows || !is_array($rows)) {
-            return back()->with('error', 'ไม่พบข้อมูลสำหรับ export');
-        }
-
-        $collection = new Collection($rows);
-
-        return Excel::download(new class($collection) implements \Maatwebsite\Excel\Concerns\FromCollection {
-            private $collection;
-            public function __construct($collection) { $this->collection = $collection; }
-            public function collection() { return $this->collection; }
-        }, 'export.xlsx');
-    }
-
-    public function xmlPreview(Request $request)
-    {
-        if (!$request->hasFile('xml_file')) {
-            return back()->with('error', 'กรุณาแนบไฟล์ XML');
-        }
-
-        $file = $request->file('xml_file');
-        $xmlContent = file_get_contents($file->getRealPath());
-        $xml = simplexml_load_string($xmlContent);
-
-        if ($xml === false) {
-            return back()->with('error', 'ไฟล์ XML ไม่ถูกต้อง');
-        }
-
-        $json = json_encode($xml);
-        $array = json_decode($json, true);
-
-        // ป้องกัน $array เป็น null
-        if (!$array) {
-            $rows = [];
-        } else {
-            $rows = isset($array['item']) ? $array['item'] : $array;
-            if (!is_array($rows) || isset($rows[0]) === false) {
-                $rows = [$rows];
-            }
-        }
-
-        return view('xml-form', ['rows' => $rows]);
-    }
+    
 }

@@ -1,0 +1,184 @@
+.gov-app-bg {
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+.gov-toolbar {
+  background: #1a237e !important;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(26,35,126,0.08);
+  position: fixed;
+  top: 0;
+  left: 220px;
+  right: 0;
+  z-index: 1200;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 220px);
+  transition: left 0.2s, width 0.2s;
+}
+
+.gov-toolbar.gov-toolbar-mini {
+  left: 60px;
+  width: calc(100% - 60px);
+}
+
+.gov-app-sidenav {
+  width: 220px;
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(26,35,126,0.06);
+  border-right: 3px solid #fbc02d;
+  border-radius: 0; /* มุมฉาก ไม่มีความมน */
+  transition: width 0.2s;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1400;
+}
+
+.gov-app-sidenav.gov-mini-sidenav {
+  width: 60px;
+}
+
+/* --- ปรับตรงนี้: ให้แถบข้างแสดงเฉพาะ icon ไม่ต้องปิดหมด --- */
+.gov-app-sidenav.gov-mini-sidenav .gov-sidenav-title,
+.gov-app-sidenav.gov-mini-sidenav .gov-sidenav-link span {
+  display: none !important;
+}
+/* ไม่ต้องซ่อน mat-divider เพื่อให้ divider ยังแสดงใน mini-sidenav */
+
+.gov-toolbar-logo {
+  height: 40px;
+  margin-right: 16px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.gov-toolbar-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.gov-toolbar-sub {
+  font-size: 1rem;
+  font-weight: normal;
+  opacity: 0.8;
+  margin-left: 12px;
+}
+
+.gov-toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.gov-toolbar-menu-btn {
+  margin-right: 12px;
+}
+
+.gov-sidenav-container {
+  height: 100vh;
+}
+
+.gov-sidenav-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 16px 8px 16px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1a237e;
+  gap: 8px;
+}
+
+.gov-sidenav-title {
+  margin-left: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.gov-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.gov-sidenav-link {
+  width: 100%;
+  justify-content: flex-start;
+  font-size: 1rem;
+  color: #333;
+  border-radius: 4px;
+  transition: background 0.2s;
+  min-height: 48px;
+}
+
+.gov-sidenav-link.active, .gov-sidenav-link:hover {
+  background: #e3f2fd;
+  color: #1a237e;
+}
+
+.gov-with-sidenav {
+  background: #f4f7fb;
+  min-height: 100vh;
+  padding: 32px 24px;
+  margin-left: 220px;
+  padding-top: 64px;
+  transition: margin-left 0.2s;
+}
+
+.gov-app-sidenav.gov-mini-sidenav ~ .gov-with-sidenav {
+  margin-left: 60px;
+}
+
+@media (max-width: 768px) {
+  .gov-app-sidenav {
+    width: 160px;
+  }
+  .gov-app-sidenav.gov-mini-sidenav {
+    width: 56px;
+  }
+  .gov-toolbar {
+    left: 160px;
+    width: calc(100% - 160px);
+  }
+  .gov-toolbar.gov-toolbar-mini {
+    left: 56px;
+    width: calc(100% - 56px);
+  }
+  .gov-with-sidenav {
+    padding: 16px 8px;
+    margin-left: 160px;
+    padding-top: 64px;
+  }
+  .gov-app-sidenav.gov-mini-sidenav ~ .gov-with-sidenav {
+    margin-left: 56px;
+  }
+}
+
+.gov-toolbar-custom {
+  background: linear-gradient(90deg, #1a237e 80%, #fbc02d 100%) !important;
+}
+
+.gov-app-sidenav.gov-mini-sidenav .gov-sidenav-title,
+.gov-app-sidenav.gov-mini-sidenav .gov-sidenav-link span {
+  display: none !important;
+}
+
+.gov-toolbar-logo {
+  height: 50px; 
+  width: auto;
+  margin-right: 25px;
+}
+
+.center-router {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}

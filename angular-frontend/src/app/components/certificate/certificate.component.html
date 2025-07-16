@@ -1,0 +1,43 @@
+<div class="certificate-dashboard">
+  <h2>รายการรางวัลการแข่งขัน</h2>
+  <input type="file" (change)="onUpload($event)" class="upload-btn" />
+  <button mat-raised-button color="primary" (click)="generateAllCertificates()">สร้างเกียรติบัตรทั้งหมด</button>
+  <table class="award-table">
+    <thead>
+      <tr>
+        <th>ประเภทกิจกรรม</th>
+        <th>ระดับ</th>
+        <th>รางวัล</th>
+        <th>โรงเรียน</th>
+        <th>รายชื่อผู้เข้าแข่งขัน</th>
+        <th>ปี</th>
+        <th>ดำเนินการ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{ item.competition_category }}</td>
+        <td>{{ item.competition_level }}</td>
+        <td>{{ item.award }}</td>
+        <td>{{ item.school_name }}</td>
+        <td>{{ item.participant_names.join(', ') }}</td>
+        <td>{{ item.award_year }}</td>
+        <td>
+          <button mat-button (click)="openPreview(item)">ดูตัวอย่างเกียรติบัตร</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Modal preview -->
+  <div class="modal-backdrop" *ngIf="previewData">
+    <div class="modal-preview">
+      <h3>เกียรติบัตร</h3>
+      <p>ขอมอบให้โรงเรียน <strong>{{ previewData.school_name }}</strong></p>
+      <p>ในกิจกรรม <strong>{{ previewData.competition_category }}</strong> ระดับ <strong>{{ previewData.competition_level }}</strong></p>
+      <p>ประเภท <strong>{{ previewData.award }}</strong></p>
+      <p>รายชื่อผู้เข้าแข่งขัน: {{ previewData.participant_names.join(', ') }}</p>
+      <p>ปี: {{ previewData.award_year }}</p>
+      <button mat-button (click)="closePreview()">ปิด</button>
+    </div>
+  </div>
+</div>
